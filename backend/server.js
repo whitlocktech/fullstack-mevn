@@ -21,6 +21,8 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static('public/docs'))
+
 app.use(
   cookieSession({
     name: "bezkoder-session",
@@ -46,9 +48,11 @@ db.mongoose
   });
 
 // simple route
+/*
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to whitlocktech application." });
 });
+*/
 
 // routes
 require("./routes/auth.routes")(app);
