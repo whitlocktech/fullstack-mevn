@@ -16,7 +16,16 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-const db = require("./models");
+app.use(express.static('public/docs'))
+
+app.use(
+  cookieSession({
+    name: "bezkoder-session",
+    secret: "COOKIE_SECRET", // should use as secret environment variable
+    httpOnly: true
+  })
+);
+
 const Role = db.role;
 
 db.mongoose
@@ -34,9 +43,11 @@ db.mongoose
   });
 
 // simple route
+/*
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to whitlocktech application." });
 });
+*/
 
 // routes
 require("./routes/auth.routes")(app);
