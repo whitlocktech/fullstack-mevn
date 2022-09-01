@@ -11,7 +11,8 @@
     </p>
     <p>
       <strong>Id:</strong>
-      {{ currentUser.id }}
+      {{ currentUser.id }} <!--This Is where the id will come from for 
+      loading individual user. Will have to pass it in the req.params-->
     </p>
     <p>
       <strong>Email:</strong>
